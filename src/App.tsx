@@ -1,24 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+// import coutriesList from './components/countriesList'
+import {init} from './features/countries/countriesSlice'
+import {useDispatch} from 'react-redux'
+import {useEffect} from 'react'
 
 function App() {
+  const dispatch = useDispatch();
+  const getFiles = () => {
+    fetch("https://restcountries.com/v3.1/all")
+    .then((r)=>r.json())
+    .then((json)=>dispatch(init(json)))
+  }
+
+  useEffect (()=>{
+    getFiles()
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
     </div>
   );
 }
