@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-// import coutriesList from './components/countriesList'
+import CoutriesList from './components/CountriesList'
 import {init} from './features/countries/countriesSlice'
 import {useDispatch} from 'react-redux'
 import {useEffect} from 'react'
@@ -20,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <CoutriesList/>
     </div>
   );
 }
