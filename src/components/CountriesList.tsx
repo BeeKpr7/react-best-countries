@@ -2,11 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import CountryCard ,{ CountryPropsInterface } from './CountryCard'
 
-interface CountriesInterface {
+export interface CountriesInterface {
     countries:{
         data: [],
         filterSelect: string,
-        filterSearch: string
+        filterSearch: string,
+        darkMode: string
     },
 }
 const CountriesList: React.FunctionComponent = () => {

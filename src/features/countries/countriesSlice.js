@@ -6,6 +6,7 @@ const countriesSlice = createSlice({
         filterSelect:"",
         filterSearch:"", 
         data: [],
+        darkMode:true,
     },   
     reducers: {
 				//nos fonctions qui viennent modifier notre state
@@ -17,13 +18,16 @@ const countriesSlice = createSlice({
             },
             editFilterSearch: (state,{payload}) => {
                 state.filterSearch=payload;
+            },
+            toggleDarkMode: (state)=> {
+                state.darkMode = !state.darkMode;
             }
 			//On inserera ici les autres fonctions nécessaires
     }
 })
 
 //On export nos fonctions
-export const { init, changeRegionFilter,editFilterSearch  } = countriesSlice.actions
+export const { init, changeRegionFilter,editFilterSearch, toggleDarkMode  } = countriesSlice.actions
 
 //On exporte pour le reducer
 export default countriesSlice.reducer
