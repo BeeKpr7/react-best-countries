@@ -1,9 +1,18 @@
 import React, { useRef } from 'react'
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {changeRegionFilter,editFilterSearch} from '../features/countries/countriesSlice'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+export enum Regions {
+    af = "Africa",
+    am = "Americas",
+    as = "Asia",
+    eu = "Europe",
+    oc = "Oceania",
+    at = "Antarctic"
+}
 
-
-const NavBar: React.FunctionComponent = ()=> {
+const FilterBar: React.FunctionComponent = ()=> {
     const dispatch = useDispatch()
     const inputSearch = useRef(null);
 
@@ -16,22 +25,27 @@ const NavBar: React.FunctionComponent = ()=> {
         
     }
     return (
-        <nav>
-            <input  ref={inputSearch} 
+        <aside>
+            <div>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                <input  ref={inputSearch} 
                     type="text" 
+                    placeholder='Search for a country'
                     onChange={(e)=>handleSubmit(e)}
                     onKeyDown={(e)=>handleKeyDown(e)} />
+            </div>
+            
 
             <select name="region" onChange={({target:{value}})=>dispatch(changeRegionFilter(value))} >
-                <option value="" selected={true} >Filter by Region</option>
+                <option value="" selected >Filter by Region</option>
                 <option value="Africa">Africa</option>
                 <option value="Americas">America</option>
                 <option value="Asia">Asia</option>
                 <option value="Europe">Europe</option>
                 <option value="Oceania">Oceania</option>
             </select>
-        </nav>
+        </aside>
     )
 }
 
-export default NavBar
+export default FilterBar

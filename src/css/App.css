@@ -42,26 +42,73 @@
 .App {
   font-family: 'Nunito Sans', sans-serif;
 }
-.White-Mode{
-  background-color:hsl(0, 0%, 98%);
+.White-Mode, aside option:hover{
+  background-color:hsl(0, 0%, 93%);
   color: hsl(200, 15%, 8%);
 }
-.White-Mode figure {
+.White-Mode figure,.White-Mode nav, .White-Mode button, .White-Mode aside select,.Dark-Mode input {
   background-color: hsl(0, 0%, 100%);
 }
-.Dark-Mode{
+/********************************************************************/
+.Dark-Mode,aside option:hover{
   background-color: hsl(207, 26%, 17%);
   color: hsl(0, 0%, 100%);
 }
 
-.Dark-Mode figure {
+.Dark-Mode figure, .Dark-Mode nav, .Dark-Mode button, .Dark-Mode aside select, .Dark-Mode input{
   background-color:hsl(209, 23%, 22%) ;
 }
 /*NAVBAR /////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 NAVBAR*/
-input {
-  background-color: black;
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5%;
+}
+h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  display: block;
+  width: 15rem;
+  text-align: left;
+}
+button {
+  border: none;
+}
+
+/*FILTERBAR ///////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+FILTERBAR*/
+aside {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 5.5rem 0;
+}
+aside div {
+  width: 28%;
+  position:relative;
+}
+aside div svg {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+}
+aside div input {
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 3.75rem;
+  width: 100%;
+}
+aside select {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 21px;
+  font-size: 14px;
+}
+aside select option {
+  padding: 5px 3rem;
 }
 /*SECTION////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
@@ -70,17 +117,19 @@ section {
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0 3rem;
 }
 section figure {
-  width: 18%;
+  width: 17rem;
   border-radius: 5px;
-  margin: 2em 40px;
+  margin: 2em 2%;
+  min-width: 13rem;
 }
 section figure img {
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  min-height: 180px;
+  min-height: 13.25rem;
 }
 section figure figcaption {
   text-align: left;
@@ -93,10 +142,10 @@ section figure figcaption h5 {
 }
 section figure figcaption ul {
   font-weight: 300;
-  font-size: 14px;
+  font-size: 1rem;
   list-style: none;
   padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0 0 2.5rem 0;
 }
 section figure figcaption ul li {
   margin: 5px 0 5px 0;

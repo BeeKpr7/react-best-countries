@@ -1,15 +1,17 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import {toggleDarkMode} from '../features/countries/countriesSlice'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoon } from '@fortawesome/free-solid-svg-icons'
 
 const Header: React.FunctionComponent = ()=>{
     const dispatch = useDispatch()
     const click = ()=> dispatch(toggleDarkMode())
     return(
-        <header>
-            <h1>Where in the world ?</h1>
-            <button onClick={()=>click()}>Dark Mode</button>
-        </header>
+        <nav>
+            <h1>Where in the world?</h1>
+            <button onClick={()=>click()}><FontAwesomeIcon icon={faMoon}/>   Dark Mode</button>
+        </nav>
     )
 }
 

@@ -6,7 +6,7 @@ const countriesSlice = createSlice({
         filterSelect:"",
         filterSearch:"", 
         data: [],
-        darkMode:true,
+        darkMode:false,
     },   
     reducers: {
 				//nos fonctions qui viennent modifier notre state

@@ -2,7 +2,7 @@ import React ,{useEffect}from 'react'
 import './css/normalize.css'
 import './css/App.css'
 import CoutriesList , { CountriesInterface }from './components/CountriesList'
-import NavBar from './components/NavBar'
+import FilterBar from './components/FilterBar'
 import Header from './components/Header'
 import {init} from './features/countries/countriesSlice'
 import {useDispatch, useSelector} from 'react-redux'
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className={darkMode ? "App Dark-Mode" : "App White-Mode" }>
       <Header/>
-      <NavBar/>
+      <FilterBar/>
       <CoutriesList/>
     </div>
   );
