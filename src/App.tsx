@@ -1,6 +1,8 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './css/normalize.css'
+import './css/App.css'
 import CoutriesList from './components/CountriesList'
+import NavBar from './components/NavBar'
 import {init} from './features/countries/countriesSlice'
 import {useDispatch} from 'react-redux'
 import {useEffect} from 'react'
@@ -18,7 +20,8 @@ function App() {
   },[])
 
   return (
-    <div className="App">
+    <div className="App Dark-Mode">
+      <NavBar/>
       <CoutriesList/>
     </div>
   );

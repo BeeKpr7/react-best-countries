@@ -3,22 +3,36 @@ import { useSelector } from 'react-redux'
 import CountryCard ,{ CountryPropsInterface } from './CountryCard'
 
 interface CountriesInterface {
-    countries:{data: []},
+    countries:{
+        data: [],
+        filterSelect: string,
+        filterSearch: string
+    },
 }
 const CountriesList: React.FunctionComponent = () => {
 
-    const countries = useSelector((state:CountriesInterface)=>state.countries.data)
+    const filterSearch: string = useSelector((state:CountriesInterface)=>state.countries.filterSearch)
+
+    const filterSelect:string = useSelector((state:CountriesInterface)=>state.countries.filterSelect)
+
+    const countries = useSelector((state:CountriesInterface)=>{
+
+        if (filterSelect==="") return state.countries.data;
+        return state.countries.data.filter((country: CountryPropsInterface["country"])=>country.region===state.countries.filterSelect)
+    })
+    
+    const countriesFiltered = countries.filter((country: CountryPropsInterface["country"])=> country.name.common.toUpperCase().indexOf(filterSearch) > -1)
     
     
     return (
-       <div>
-        {countries.map((country: CountryPropsInterface["country"])=>{
+       <section>
+        {countriesFiltered.map((country: CountryPropsInterface["country"])=>{
             return(
                     <CountryCard 
                         key={country.fifa+Math.random().toString()}
-                        country={country}/>
+                        country={country}/> 
                 )})}
-       </div>
+       </section>
     )
 }
 
