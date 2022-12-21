@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-best-countries/static/css/main.5dce988b.css",
+    "main.js": "/react-best-countries/static/js/main.e24ee82d.js",
+    "static/js/787.227cfaf1.chunk.js": "/react-best-countries/static/js/787.227cfaf1.chunk.js",
+    "index.html": "/react-best-countries/index.html",
+    "main.5dce988b.css.map": "/react-best-countries/static/css/main.5dce988b.css.map",
+    "main.e24ee82d.js.map": "/react-best-countries/static/js/main.e24ee82d.js.map",
+    "787.227cfaf1.chunk.js.map": "/react-best-countries/static/js/787.227cfaf1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5dce988b.css",
+    "static/js/main.e24ee82d.js"
+  ]
+}
