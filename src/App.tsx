@@ -1,5 +1,5 @@
 import React ,{useEffect}from 'react'
-import './css/normalize.css'
+//import './css/normalize.css'
 import './css/App.css'
 import CoutriesList , { CountriesInterface }from './components/CountriesList'
 import FilterBar from './components/FilterBar'
