@@ -1,44 +1,27 @@
-.App {
-  text-align: center;
+/*INITIAL*/
+/* override browser default */
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* use viewport-relative units to cover page fully */
+body {
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#root, .App {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+/* include border and padding in element width and height */
+* {
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-/*/////////////////////////////////////////////////////////////
+/*FONTS-COLOR-DECORATION////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////*/
+FONTS-COLOR-DECORATION//////////////////////////////////////////*/
 .App {
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -46,18 +29,44 @@
   background-color:hsl(0, 0%, 93%);
   color: hsl(200, 15%, 8%);
 }
-.White-Mode figure,.White-Mode nav, .White-Mode button, .White-Mode aside select,.Dark-Mode input {
+.White-Mode figure,.White-Mode nav, .White-Mode button, .White-Mode aside select, .White-Mode aside div {
   background-color: hsl(0, 0%, 100%);
 }
+.White-Mode aside div svg {
+  color: grey;
+}
+
 /********************************************************************/
 .Dark-Mode,aside option:hover{
   background-color: hsl(207, 26%, 17%);
   color: hsl(0, 0%, 100%);
 }
 
-.Dark-Mode figure, .Dark-Mode nav, .Dark-Mode button, .Dark-Mode aside select, .Dark-Mode input{
+.Dark-Mode figure, .Dark-Mode nav, .Dark-Mode button, .Dark-Mode aside select, .Dark-Mode aside div, .Dark-Mode aside div input{
   background-color:hsl(209, 23%, 22%) ;
 }
+/*********************************************************************/
+button, aside select, aside select option, aside div input {
+  border: none;
+}
+aside div, aside input, aside select, section figure {
+  border-radius: 5px;
+}
+nav {
+  box-shadow:1px 1px 5px 0px rgba(0,0,0,0.24) ;
+}
+/*SIZE-WEIGHT///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+SIZE-WEIGHT///////////////////////////////////////////////////////////////*/
+h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+aside select {
+  font-size: 14px;
+  font-weight: 300;
+}
+
 /*NAVBAR /////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 NAVBAR*/
@@ -67,15 +76,9 @@ nav {
   padding: 1rem 5%;
 }
 h1 {
-  font-size: 1.5rem;
-  font-weight: 800;
   margin: 0;
   display: block;
-  width: 15rem;
   text-align: left;
-}
-button {
-  border: none;
 }
 
 /*FILTERBAR ///////////////////////////////////////////////////////////
@@ -87,25 +90,22 @@ aside {
   padding: 1.5rem 5.5rem 0;
 }
 aside div {
-  width: 28%;
-  position:relative;
+  width: 34%;
+  display: flex;
+  padding: 20px;
 }
 aside div svg {
-  position: absolute;
-  top: 18px;
-  left: 20px;
+  padding: 5px;
 }
 aside div input {
-  border: none;
-  border-radius: 5px;
-  padding: 1rem 3.75rem;
   width: 100%;
+  margin: 0 0 0 20px;
+}
+aside div input:focus{
+  border-color: grey;
 }
 aside select {
-  border: none;
-  border-radius: 5px;
   padding: 5px 21px;
-  font-size: 14px;
 }
 aside select option {
   padding: 5px 3rem;
@@ -121,7 +121,6 @@ section {
 }
 section figure {
   width: 17rem;
-  border-radius: 5px;
   margin: 2em 2%;
   min-width: 13rem;
 }
@@ -153,3 +152,44 @@ section figure figcaption ul li {
 section span {
   font-weight: 600;
 }
+section div>p {
+  padding: 18vh 0;
+}
+/*MEDIAQUERIES///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+MEDIAQUERIES*/
+@media (max-width: 775px) {
+  aside {
+    padding: 15px 5%;
+    flex-direction: column;
+  }
+  aside div {
+    width: inherit;
+  }
+  aside select {
+    width: 50%;
+    margin-top: 2rem;
+    padding: 20px;
+  }
+}
+@media (max-width: 376px) { 
+  nav h1, aside div input {
+    font-size: 14px;
+  }
+  nav button {
+    font-size: 12px;
+  }
+  nav {
+    padding: 1.5rem 5%;
+  }
+  /***************************************************/
+
+  /****************************************************/
+  section {
+    padding: 0;
+  }
+  section figure {
+    margin: 20px 0;
+  }
+ }

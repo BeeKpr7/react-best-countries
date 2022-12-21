@@ -27,12 +27,16 @@ const CountriesList: React.FunctionComponent = () => {
     
     return (
        <section>
-        {countriesFiltered.map((country: CountryPropsInterface["country"])=>{
+        {countriesFiltered.length > 0 ?
+        countriesFiltered.map((country: CountryPropsInterface["country"])=>{
             return(
                     <CountryCard 
                         key={country.fifa+Math.random().toString()}
                         country={country}/> 
-                )})}
+                )})
+            :
+            <div><p>Sorry, No results for {filterSearch}</p></div>
+            }
        </section>
     )
 }

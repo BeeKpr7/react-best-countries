@@ -38,11 +38,7 @@ const FilterBar: React.FunctionComponent = ()=> {
 
             <select name="region" onChange={({target:{value}})=>dispatch(changeRegionFilter(value))} >
                 <option value="" selected >Filter by Region</option>
-                <option value="Africa">Africa</option>
-                <option value="Americas">America</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
+                {Object.values(Regions).map((region:string)=>(<option key={region} value={region}>{region}</option>))}
             </select>
         </aside>
     )
