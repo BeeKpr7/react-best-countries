@@ -18,6 +18,9 @@ body {
 * {
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+}
 /*FONTS-COLOR-DECORATION////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 FONTS-COLOR-DECORATION//////////////////////////////////////////*/
@@ -26,7 +29,9 @@ FONTS-COLOR-DECORATION//////////////////////////////////////////*/
 }
 .White-Mode, aside option:hover{
   background-color:hsl(0, 0%, 93%);
-  color: hsl(200, 15%, 8%);
+}
+.White-Mode a, .White-Mode,aside option:hover {
+  color:hsl(200, 15%, 8%);
 }
 .White-Mode figure,.White-Mode nav, .White-Mode button, .White-Mode aside select, .White-Mode aside div {
   background-color: hsl(0, 0%, 100%);
@@ -34,13 +39,13 @@ FONTS-COLOR-DECORATION//////////////////////////////////////////*/
 .White-Mode aside div svg {
   color: grey;
 }
-
 /********************************************************************/
 .Dark-Mode,aside option:hover{
   background-color: hsl(207, 26%, 17%);
+}
+.Dark-Mode,aside option:hover, .Dark-Mode a, .Dark-Mode input, .Dark-Mode select, .Dark-Mode button {
   color: hsl(0, 0%, 100%);
 }
-
 .Dark-Mode figure, .Dark-Mode nav, .Dark-Mode button, .Dark-Mode aside select, .Dark-Mode aside div, .Dark-Mode aside div input{
   background-color:hsl(209, 23%, 22%) ;
 }
@@ -119,10 +124,13 @@ section {
   justify-content: center;
   padding: 0 3rem;
 }
+section a {
+  margin: 2em 2%;
+}
 section figure {
   width: 17rem;
-  margin: 2em 2%;
-  min-width: 13rem;
+  margin: 0;
+  padding-bottom: 0.2rem;
 }
 section figure img {
   width: 100%;

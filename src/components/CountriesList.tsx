@@ -22,7 +22,7 @@ const CountriesList: React.FunctionComponent = () => {
         return state.countries.data.filter((country: CountryPropsInterface["country"])=>country.region===state.countries.filterSelect)
     })
     
-    const countriesFiltered = countries.filter((country: CountryPropsInterface["country"])=> country.name.common.toUpperCase().indexOf(filterSearch) > -1)
+    const countriesFiltered = countries.filter((country: CountryPropsInterface["country"])=> country.translations.fra.common.toUpperCase().indexOf(filterSearch) > -1)
     
     
     return (

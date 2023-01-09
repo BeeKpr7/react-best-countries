@@ -1,11 +1,12 @@
 import React ,{useEffect}from 'react'
-import './css/normalize.css'
 import './css/App.css'
-import CoutriesList , { CountriesInterface }from './components/CountriesList'
-import FilterBar from './components/FilterBar'
+import  { CountriesInterface }from './components/CountriesList'
 import Header from './components/Header'
-import {init} from './features/countries/countriesSlice'
-import {useDispatch, useSelector} from 'react-redux'
+import Home from './components/pages/Home'
+import Country from './components/pages/Country'
+import { init } from './features/countries/countriesSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { Route, HashRouter, Routes } from "react-router-dom";
 function App() {
 
   const dispatch = useDispatch();
@@ -23,11 +24,15 @@ function App() {
   }
   
   return (
-    <div className={darkMode ? "App Dark-Mode" : "App White-Mode" }>
-      <Header/>
-      <FilterBar/>
-      <CoutriesList/>
-    </div>
+    <HashRouter>
+      <div className={darkMode ? "App Dark-Mode" : "App White-Mode" }>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path='/Country/:countryName' element={<Country/>}/>
+        </Routes>
+      </div>
+    </HashRouter>
   );
 }
 
