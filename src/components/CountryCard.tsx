@@ -41,7 +41,6 @@ const CountryCard: React.FunctionComponent<CountryPropsInterface> = ({country}) 
     const altImg = `Country Flag of ${country.name.common}`
     const populationString = country.population.toLocaleString("en-US")
     const linkToCountry = "/Country/:"+country.name.common.replaceAll(" ","-");
-    console.log(linkToCountry);
     
     return (
         <NavLink to={linkToCountry} >
