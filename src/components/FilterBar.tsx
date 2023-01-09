@@ -34,12 +34,12 @@ const FilterBar: React.FunctionComponent = ()=> {
                     onChange={(e)=>handleSubmit(e)}
                     onKeyDown={(e)=>handleKeyDown(e)} />
             </div>
-            
 
             <select name="region" onChange={({target:{value}})=>dispatch(changeRegionFilter(value))} >
                 <option value="" selected >Filter by Region</option>
                 {Object.values(Regions).map((region:string)=>(<option key={region} value={region}>{region}</option>))}
             </select>
+            
         </aside>
     )
 }
