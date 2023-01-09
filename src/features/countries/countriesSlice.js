@@ -25,7 +25,9 @@ const countriesSlice = createSlice({
 			//On inserera ici les autres fonctions nécessaires
     }
 })
-
+export const ALLCOUNTRIES = (state)=> {
+    return state.countries.data;
+}
 //On export nos fonctions
 export const { init, changeRegionFilter,editFilterSearch, toggleDarkMode  } = countriesSlice.actions
 

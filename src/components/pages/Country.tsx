@@ -16,7 +16,7 @@ const Country: React.FunctionComponent = () => {
 
     return (
         <main className="country">
-            <button onClick={() => navigate(-1)}><FontAwesomeIcon icon={faArrowLeftLong} />Back</button>
+            <button onClick={() => navigate(-1)}><FontAwesomeIcon icon={faArrowLeftLong} /> Back</button>
             {country.length > 0 ?   
                 <CountryCardDetails country={country[0]}/>
              :
