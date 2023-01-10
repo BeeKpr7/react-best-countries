@@ -26,6 +26,7 @@ a {
 FONTS-COLOR-DECORATION//////////////////////////////////////////*/
 .App {
   font-family: 'Nunito Sans', sans-serif;
+  padding: 0 0 5rem;
 }
 .White-Mode, aside option:hover,.White-Mode .country figure{
   background-color:hsl(0, 0%, 93%);
@@ -268,7 +269,26 @@ MEDIAQUERIES*/
     margin-top: 2rem;
     padding: 20px;
   }
-
+  /*COUNTRY DETAILS**************************************************************/
+  main.country figure {
+    display: block;
+    text-align: center;
+  }
+  main.country figure img {
+    width:85%;
+  }
+  main.country figure figcaption {
+    width: auto;
+    text-align: left;
+    margin: 0 0 0 9%;
+  }
+  main.country figure figcaption div.countryDetailsInfo {
+    display: block;
+  }
+  div.borderCountryButton span {
+    width: 100%;
+    margin: 0 0 10px;
+  }
 }
 @media (max-width: 376px) { 
   nav h1, aside div input {

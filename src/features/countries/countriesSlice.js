@@ -1,4 +1,4 @@
-import {createSlice } from '@reduxjs/toolkit'       
+import {createSelector, createSlice } from '@reduxjs/toolkit'       
 //On crée un objet Slice 
 const countriesSlice = createSlice({
     name: 'countries',
@@ -7,6 +7,7 @@ const countriesSlice = createSlice({
         filterSearch:"", 
         data: [],
         darkMode:false,
+        selectedCountry :"",
     },   
     reducers: {
 				//nos fonctions qui viennent modifier notre state
@@ -26,8 +27,18 @@ const countriesSlice = createSlice({
     }
 })
 export const ALLCOUNTRIES = (state)=> {
-    return state.countries.data;
+    return state.countries.data
 }
+export const SELECTEDCOUNTRY = (state)=> {
+    return state.countries.selectedCountry
+}
+export const COUNTRYDATA = createSelector(
+    ALLCOUNTRIES,
+    SELECTEDCOUNTRY,
+    (countries,countryName)=>
+    countries.filter((country)=>
+    country.name.common === countryName)
+)
 //On export nos fonctions
 export const { init, changeRegionFilter,editFilterSearch, toggleDarkMode  } = countriesSlice.actions
 
