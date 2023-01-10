@@ -40,27 +40,27 @@ export interface CountryPropsInterface {
 const CountryCard: React.FunctionComponent<CountryPropsInterface> = ({country}) => {
     const altImg = `Country Flag of ${country.name.common}`
     const populationString = country.population.toLocaleString("en-US")
-    const linkToCountry = "/Country/:"+country.name.common.replaceAll(" ","-");
+    /* const linkToCountry = "/Country/:"+country.name.common.replaceAll(" ","-"); */
     
     return (
-        <NavLink to={linkToCountry} >
-        <figure>
-            <img src={country.flags.png} alt={altImg}/>
-            <figcaption>
-                <h5>{country.translations.fra.common}</h5>
-                <ul>
-                    <li>
-                        <span>Population: </span>{populationString}
-                    </li>
-                    <li>
-                        <span>Region: </span>{country.region}
-                    </li>
-                    <li>
-                        <span>Capital: </span>{country.capital}
-                    </li>
-                </ul>
-            </figcaption>   
-        </figure>
+        <NavLink to={country.name.common.replaceAll(" ","-")} >
+            <figure>
+                <img src={country.flags.png} alt={altImg}/>
+                <figcaption>
+                    <h5>{country.translations.fra.common}</h5>
+                    <ul>
+                        <li>
+                            <span>Population: </span>{populationString}
+                        </li>
+                        <li>
+                            <span>Region: </span>{country.region}
+                        </li>
+                        <li>
+                            <span>Capital: </span>{country.capital}
+                        </li>
+                    </ul>
+                </figcaption>   
+            </figure>
         </NavLink>
     )
 }

@@ -1,16 +1,16 @@
 import React from "react";
 import { useSelector } from 'react-redux'
 import { NavLink } from "react-router-dom"
-import { CountryPropsInterface } from "./CountryCard.js";
-import { CountriesInterface } from "./CountriesList.js";
-
+import { CountryPropsInterface } from "./CountryCard";
+import { ALLCOUNTRIES } from "../features/countries/countriesSlice";
 
 const CountryCardDetails : React.FunctionComponent<CountryPropsInterface> = ({country})=>{
     
     const altImg = `Country Flag of ${country.name.common}`
     const populationString = country.population.toLocaleString("en-US")
-    const countries = useSelector((state:CountriesInterface)=>state.countries.data)
+    const countries = useSelector(ALLCOUNTRIES)
     const currencies =country.currencies[Object.keys(country.currencies)[0]].name
+    const nativeName = country.name.nativeName[Object.keys(country.name.nativeName)[0]].official
     const borderCountry = ()=>{
         if (country.borders && country.borders.length >0){
             return country.borders.map((cca3:string)=>{
@@ -27,7 +27,6 @@ const CountryCardDetails : React.FunctionComponent<CountryPropsInterface> = ({co
         return ["no borders"]
      }   
 
-    const nativeName = country.name.nativeName[Object.keys(country.name.nativeName)[0]].official
     return (
         <figure>
             <img src={country.flags.png} alt={altImg}/>
@@ -72,7 +71,7 @@ const CountryCardDetails : React.FunctionComponent<CountryPropsInterface> = ({co
                             {borderCountry().map((country:string)=>{
                                 const linkToCountry = "/Country/:"+country.replaceAll(" ","-"); 
                                 return (
-                                <NavLink to={linkToCountry} key={country}>{country}</NavLink>)
+                                <NavLink to={"/"+country.replaceAll(" ","-")} key={country}>{country}</NavLink>)
                             }
                             )}
                     </div>

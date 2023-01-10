@@ -1,5 +1,5 @@
 import React ,{useEffect}from 'react'
-import './css/App.css'
+          import './css/App.css'
 import  { CountriesInterface }from './components/CountriesList'
 import Header from './components/Header'
 import Home from './components/pages/Home'
@@ -29,7 +29,7 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path='/Country/:countryName' element={<Country/>}/>
+          <Route path='/:countryName' element={<Country/>}/>
         </Routes>
       </div>
     </HashRouter>

@@ -1,6 +1,6 @@
-import React, { useRef } from 'react'
-import { useDispatch } from 'react-redux'
-import {changeRegionFilter,editFilterSearch} from '../features/countries/countriesSlice'
+import React, { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {changeRegionFilter,editFilterSearch, FILTERSEARCH} from '../features/countries/countriesSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 export enum Regions {
@@ -14,15 +14,15 @@ export enum Regions {
 
 const FilterBar: React.FunctionComponent = ()=> {
     const dispatch = useDispatch()
-    const inputSearch = useRef(null);
+    const inputSearch = useRef(null)
+    const filterSearch = useSelector(FILTERSEARCH)
 
     const handleSubmit = (e:React.FormEvent<HTMLInputElement>) => {
         dispatch(editFilterSearch(e.currentTarget.value.toUpperCase()));
     }
 
     const handleKeyDown = (e:any)=>{
-        if (e.key==='Escape') console.log("escape");
-        
+        if (e.key==='Escape') dispatch(editFilterSearch(""));
     }
     return (
         <aside>
@@ -30,6 +30,7 @@ const FilterBar: React.FunctionComponent = ()=> {
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
                 <input  ref={inputSearch} 
                     type="text" 
+                    value={filterSearch}
                     placeholder='Search for a country'
                     onChange={(e)=>handleSubmit(e)}
                     onKeyDown={(e)=>handleKeyDown(e)} />

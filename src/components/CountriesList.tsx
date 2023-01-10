@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { COUNTRIESFILTERED, FILTERSEARCH, FILTERSELECT } from '../features/countries/countriesSlice'
 import CountryCard ,{ CountryPropsInterface } from './CountryCard'
 
 export interface CountriesInterface {
@@ -12,9 +13,9 @@ export interface CountriesInterface {
 }
 const CountriesList: React.FunctionComponent = () => {
 
-    const filterSearch: string = useSelector((state:CountriesInterface)=>state.countries.filterSearch)
-
-    const filterSelect:string = useSelector((state:CountriesInterface)=>state.countries.filterSelect)
+    const filterSearch: string = useSelector(FILTERSEARCH)
+/*
+    const filterSelect:string = useSelector(FILTERSELECT)
 
     const countries = useSelector((state:CountriesInterface)=>{
 
@@ -22,8 +23,9 @@ const CountriesList: React.FunctionComponent = () => {
         return state.countries.data.filter((country: CountryPropsInterface["country"])=>country.region===state.countries.filterSelect)
     })
     
-    const countriesFiltered = countries.filter((country: CountryPropsInterface["country"])=> country.translations.fra.common.toUpperCase().indexOf(filterSearch) > -1)
+     const countriesFiltered = countries.filter((country: CountryPropsInterface["country"])=> country.translations.fra.common.toUpperCase().indexOf(filterSearch) > -1) */
     
+    const countriesFiltered = useSelector(COUNTRIESFILTERED)
     
     return (
        <section>

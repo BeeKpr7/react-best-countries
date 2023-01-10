@@ -80,7 +80,7 @@ NAVBAR*/
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 5%;
+  padding: 1rem 7%;
 }
 h1 {
   margin: 0;
@@ -94,7 +94,7 @@ FILTERBAR*/
 aside {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 5.5rem 0;
+  padding: 1.5rem 7% 0;
 }
 aside div:first-child {
   width: 34%;
@@ -129,8 +129,8 @@ SECTION*/
 section {
   display:flex;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 3rem;
+  justify-content: space-between;
+  padding: 0 5%;
 }
 section a {
   margin: 2em 2%;
@@ -139,12 +139,15 @@ section figure {
   width: 17rem;
   margin: 0;
   padding-bottom: 0.2rem;
+  display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 24rem;
 }
 section figure img {
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  min-height: 13.25rem;
 }
 section figure figcaption {
   text-align: left;
