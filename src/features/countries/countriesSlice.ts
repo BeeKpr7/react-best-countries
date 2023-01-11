@@ -42,6 +42,9 @@ export const FILTERSEARCH = (state: {countries :{ filterSearch:any}}) => {
 export const FILTERSELECT = (state: {countries: {filterSelect:any }}) => {
     return state.countries.filterSelect
 }
+export const DARKMODE = (state : {countries: {darkMode:boolean}}) => {
+    return state.countries.darkMode
+}
 export const COUNTRIESFILTERED = createSelector(
     [ALLCOUNTRIES,FILTERSEARCH,FILTERSELECT],
     (countries:any,filterSearch:any,filterSelect:any) => {
